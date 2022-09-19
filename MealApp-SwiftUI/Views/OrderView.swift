@@ -10,9 +10,13 @@ import SwiftUI
 struct OrderView: View {
     var body: some View {
         NavigationView {
-            Text("order")
-                .navigationTitle("Order")
+            VStack {
+                Text("order")
+            }
+            .navigationBarTitle("Order")
+            
         }
+
     }
 }
 

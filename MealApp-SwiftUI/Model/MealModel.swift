@@ -7,25 +7,30 @@
 
 import Foundation
 
+struct MealModel: Codable {
+    let request: [Result]
+}
 
-struct MealModel: Decodable,Identifiable {
-    let id: String
-    let name: String
-    let description: String
-    let price: Double
-    let imageURL: String
+// MARK: - Request
+struct Result: Codable, Identifiable {
+    let requestDescription: String
     let calories: Int
+    let price: Double
     let protein: Int
-    let carbs: Int
+    let name: String
+    let imageURL: String
+    let carbs, id: Int
+
+    enum CodingKeys: String, CodingKey {
+        case requestDescription = "description"
+        case calories, price, protein, name, imageURL, carbs, id
+    }
 }
 
-struct Result {
-    let request: [MealModel]
-}
 
 
 struct MockData{
-    static let sampleMeal = MealModel(id: "123", name: "Taccoo", description: "A beautiful taco", price: 12.32, imageURL: "asd", calories: 123, protein: 123, carbs: 123)
+    static let sampleMeal = Result(requestDescription: "A beautiful taco", calories: 44, price: 22.21 , protein: 12, name: "asd", imageURL: "123", carbs: 123, id: 123)
     
     static let sampleMealList = [
     sampleMeal,

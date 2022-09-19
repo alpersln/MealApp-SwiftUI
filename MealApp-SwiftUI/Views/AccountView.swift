@@ -10,9 +10,13 @@ import SwiftUI
 struct AccountView: View {
     var body: some View {
         NavigationView {
-            Text("account")
-                .navigationTitle("Account")
+            VStack {
+                Text("account")
+            }
+            .navigationBarTitle("Account")
+            
         }
+
     }
 }
 

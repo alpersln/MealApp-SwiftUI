@@ -8,24 +8,36 @@
 import SwiftUI
 
 struct HomeView: View {
- 
+    @ObservedObject var mealvm = mealViewModel()
     var body: some View {
         NavigationView {
-            List{
-                ForEach(MockData.sampleMealList){ meal in
+            if mealvm.mealList?.request == nil {
+                ProgressView()
+            }else {
+                List(mealvm.mealList?.request ?? MockData.sampleMealList){  meal in
                     HStack{
-                        Image("trek")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100, height: 100)
-                        Text(meal.name)
-                            .font(.title3)
-                            .fontWeight(.medium)
+                        AsyncImage(url: URL(string: "\(meal.imageURL)")){ image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 100, height: 100)
+                        
+                        VStack(alignment:.leading) {
+                            Text(meal.name)
+                                .font(.title3)
+                                .fontWeight(.medium)
+                            Text("$\(meal.price,specifier: "%.2f")")
+                            Text(mealvm.mealList?.request[1].name ?? "")
+                        }
+                        .padding()
                     }
+                    
                 }
+                .navigationBarTitle("Home")
             }
-            
-                .navigationTitle("Home")
+        }.task {
+            await mealvm.fetchData()
         }
         
     }
