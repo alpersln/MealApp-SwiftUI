@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AccountView: View {
-
+    
     @StateObject var viewModel = AccountViewModel()
+    
 
     var body: some View {
         NavigationView {
@@ -26,13 +27,11 @@ struct AccountView: View {
                     Toggle("Refill Your Bottle", isOn: $viewModel.refillBottle)
                 }.tint(.orange)
                 Button("Save Changes"){
-                     viewModel.isValidForm ? print("valid") : print("missing")
-                }
+                    viewModel.isValidForm ? print("valid") : print("missing")
+                }.disabled(!viewModel.isValidForm)
             }
             .navigationBarTitle("Account")
-            
         }
-
     }
 }
 

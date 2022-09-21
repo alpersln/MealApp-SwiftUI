@@ -12,7 +12,7 @@ struct MealModel: Codable {
 }
 
 // MARK: - Request
-struct Result: Codable, Identifiable {
+struct Result: Codable, Identifiable, Hashable {
     let requestDescription: String
     let calories: Int
     let price: Double
@@ -30,12 +30,11 @@ struct Result: Codable, Identifiable {
 
 
 struct MockData{
-    static let sampleMeal = Result(requestDescription: "A beautiful taco", calories: 44, price: 22.21 , protein: 12, name: "asd", imageURL: "123", carbs: 123, id: 123)
+    static let sampleMeal1 = Result(requestDescription: "A beautiful taco", calories: 44, price: 22.21 , protein: 12, name: "asd", imageURL: "123", carbs: 123, id: 1)
+    static let sampleMeal2 = Result(requestDescription: "A beautiful spaget", calories: 44, price: 22.21 , protein: 12, name: "asd", imageURL: "123", carbs: 123, id: 2)
     
     static let sampleMealList = [
-    sampleMeal,
-    sampleMeal,
-    sampleMeal,
-    sampleMeal
+    sampleMeal1,
+    sampleMeal2,
     ]
 }

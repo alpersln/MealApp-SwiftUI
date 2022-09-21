@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MealDetailView: View {
     let mealDetail: Result
+    
+    @StateObject var mealVM = mealViewModel()
+    @EnvironmentObject var orderVM:OrderViewModel
+    
     var body: some View {
         VStack {
                 AsyncImage(url: URL(string: "\(mealDetail.imageURL)")){ image in
@@ -39,32 +43,17 @@ struct MealDetailView: View {
                     NutritionInfo(title: "Calories", value: mealDetail.calories)
                     NutritionInfo(title: "Carbs", value: mealDetail.carbs)
                     NutritionInfo(title: "Protein", value: mealDetail.protein)
-
-//                    VStack{
-//                        Text("Calories")
-//                        Text("\(mealDetail.calories)").foregroundColor(.gray)
-//                    }
-//                    VStack{
-//                        Text("Carbs")
-//                        Text("\(mealDetail.carbs)").foregroundColor(.gray)
-//                    }
-//                    VStack{
-//                        Text("Protein")
-//                        Text("\(mealDetail.protein)").foregroundColor(.gray)
-//                    }
                 }
                 Spacer()
 
                 // MARK: - Button
 
                 Button(action: {
-                    print("ot")
-                    
+                    orderVM.orderedMealList.append(mealDetail)
+                   
+                    print(orderVM.orderedMealList.count)
                 }) {
-                Text("$\(mealDetail.price,specifier: "%.2f")  -  Add To Order")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                    .padding(.all, 12)
+                    PrettyButton(title: "$\(mealDetail.price,specifier: "%.2f")  -  Add To Order")
                 }.buttonStyle(.bordered)
                     .tint(.orange)
                 Spacer()

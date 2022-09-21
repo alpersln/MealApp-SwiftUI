@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var mealvm = mealViewModel()
+    @StateObject var mealvm = mealViewModel()
     @State var imagg = Image("trek")
     var body: some View {
         NavigationView {
@@ -17,26 +17,7 @@ struct HomeView: View {
             }else {
                 List(mealvm.mealList?.request ?? MockData.sampleMealList){  meal in
                     NavigationLink(destination: MealDetailView(mealDetail: meal)) {
-                        HStack{
-                            AsyncImage(url: URL(string: "\(meal.imageURL)")){ image in
-                                image.resizable()
-                                
-                            } placeholder: {
-                                
-                                ProgressView()
-                                
-                            }
-                            .frame(width: 100, height: 100)
-                            
-                            VStack(alignment:.leading) {
-                                Text(meal.name)
-                                    .font(.title3)
-                                    .fontWeight(.medium)
-                                Text("$\(meal.price,specifier: "%.2f")")
-                                Text(mealvm.mealList?.request[1].name ?? "")
-                            }
-                            .padding()
-                        }
+                        MealListCell(meal: meal)
                     }
                     
                 }

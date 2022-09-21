@@ -18,6 +18,9 @@
 		824AE91C28D7840D00B74E51 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AE91B28D7840D00B74E51 /* OrderView.swift */; };
 		824AE92028D78F6400B74E51 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AE91F28D78F6400B74E51 /* MealModel.swift */; };
 		824AE92328D7906500B74E51 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AE92228D7906500B74E51 /* MealViewModel.swift */; };
+		826F9DE028DB620F0076B014 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826F9DDF28DB620F0076B014 /* OrderViewModel.swift */; };
+		826F9DE328DB660D0076B014 /* MealListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826F9DE228DB660D0076B014 /* MealListCell.swift */; };
+		826F9DE628DB689E0076B014 /* PrettyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826F9DE528DB689E0076B014 /* PrettyButton.swift */; };
 		82BFA33328D9B0B5004C2771 /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BFA33228D9B0B5004C2771 /* MealDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,9 @@
 		824AE91B28D7840D00B74E51 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		824AE91F28D78F6400B74E51 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		824AE92228D7906500B74E51 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
+		826F9DDF28DB620F0076B014 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		826F9DE228DB660D0076B014 /* MealListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListCell.swift; sourceTree = "<group>"; };
+		826F9DE528DB689E0076B014 /* PrettyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrettyButton.swift; sourceTree = "<group>"; };
 		82BFA33228D9B0B5004C2771 /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				824AE91928D783FF00B74E51 /* AccountView.swift */,
-				822EDBFD28D9D1ED00A92A2C /* AccountViewModel.swift */,
 			);
 			path = AccountView;
 			sourceTree = "<group>";
@@ -84,6 +89,7 @@
 		824AE90728D7829F00B74E51 /* MealApp-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				826F9DE428DB66160076B014 /* Utils */,
 				822EDBFF28D9D46F00A92A2C /* Extensions */,
 				824AE92128D7905200B74E51 /* ViewModel */,
 				824AE91E28D78F5000B74E51 /* Model */,
@@ -107,9 +113,9 @@
 		824AE91628D783D800B74E51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				826F9DE128DB63830076B014 /* OrderView */,
 				822EDBFC28D9D1D300A92A2C /* AccountView */,
 				82BFA33128D9B082004C2771 /* HomeView */,
-				824AE91B28D7840D00B74E51 /* OrderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,8 +132,27 @@
 			isa = PBXGroup;
 			children = (
 				824AE92228D7906500B74E51 /* MealViewModel.swift */,
+				822EDBFD28D9D1ED00A92A2C /* AccountViewModel.swift */,
+				826F9DDF28DB620F0076B014 /* OrderViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		826F9DE128DB63830076B014 /* OrderView */ = {
+			isa = PBXGroup;
+			children = (
+				824AE91B28D7840D00B74E51 /* OrderView.swift */,
+			);
+			path = OrderView;
+			sourceTree = "<group>";
+		};
+		826F9DE428DB66160076B014 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				826F9DE228DB660D0076B014 /* MealListCell.swift */,
+				826F9DE528DB689E0076B014 /* PrettyButton.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		82BFA33128D9B082004C2771 /* HomeView */ = {
@@ -210,11 +235,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				824AE91A28D783FF00B74E51 /* AccountView.swift in Sources */,
+				826F9DE028DB620F0076B014 /* OrderViewModel.swift in Sources */,
 				824AE92328D7906500B74E51 /* MealViewModel.swift in Sources */,
 				822EDC0628D9D5BE00A92A2C /* StringExtension.swift in Sources */,
+				826F9DE328DB660D0076B014 /* MealListCell.swift in Sources */,
 				824AE91828D783E700B74E51 /* HomeView.swift in Sources */,
 				824AE90B28D7829F00B74E51 /* ContentView.swift in Sources */,
 				822EDBFE28D9D1ED00A92A2C /* AccountViewModel.swift in Sources */,
+				826F9DE628DB689E0076B014 /* PrettyButton.swift in Sources */,
 				82BFA33328D9B0B5004C2771 /* MealDetailView.swift in Sources */,
 				824AE90928D7829F00B74E51 /* MealApp_SwiftUIApp.swift in Sources */,
 				824AE92028D78F6400B74E51 /* MealModel.swift in Sources */,
