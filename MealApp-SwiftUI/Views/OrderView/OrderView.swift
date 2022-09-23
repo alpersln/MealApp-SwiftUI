@@ -21,11 +21,12 @@ struct OrderView: View {
                     Button {
                         print("order")
                     } label: {
-                        PrettyButton(title: "$99 ORDER NOW")
+                        PrettyButton(title: "\(orderVM.totalPrice,specifier: "%.2f") ORDER NOW")
                     }.buttonStyle(.bordered)
                         .tint(.orange)
                     Spacer()
                 }
+                .listStyle(.plain)
             .navigationBarTitle("Order")
 
                 

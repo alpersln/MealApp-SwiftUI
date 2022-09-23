@@ -16,6 +16,7 @@ struct PrettyButton: View {
             .font(.title3)
             .fontWeight(.semibold)
             .padding(.all, 12)
+            .frame(maxWidth: .infinity,alignment: .center)
     }
 }
 

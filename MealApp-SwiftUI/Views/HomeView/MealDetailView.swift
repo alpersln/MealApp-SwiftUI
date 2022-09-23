@@ -56,6 +56,7 @@ struct MealDetailView: View {
                     PrettyButton(title: "$\(mealDetail.price,specifier: "%.2f")  -  Add To Order")
                 }.buttonStyle(.bordered)
                     .tint(.orange)
+                    .padding()
                 Spacer()
 
             }
