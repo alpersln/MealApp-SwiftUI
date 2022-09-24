@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct MealListCell: View {
     
@@ -13,7 +14,7 @@ struct MealListCell: View {
     
     var body: some View {
         HStack{
-            AsyncImage(url: URL(string: "\(meal.imageURL)")){ image in
+            CachedAsyncImage(url: URL(string: "\(meal.imageURL)")){ image in
                 image.resizable()
                 
             } placeholder: {
@@ -28,7 +29,7 @@ struct MealListCell: View {
                     .font(.title3)
                     .fontWeight(.medium)
                 Text("$\(meal.price,specifier: "%.2f")")
-              
+                
             }
             .padding()
         }

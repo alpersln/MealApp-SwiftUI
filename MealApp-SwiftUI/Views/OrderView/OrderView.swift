@@ -10,29 +10,46 @@ import SwiftUI
 struct OrderView: View {
     @EnvironmentObject var orderVM: OrderViewModel
     @StateObject var mealVm = mealViewModel()
-
+    
     var body: some View {
         NavigationView {
+            
             VStack {
-                List{
-                    ForEach(orderVM.orderedMealList) { order in
-                        MealListCell(meal: order)
-                    }.onDelete(perform: orderVM.deleteItems)
-                    Button {
-                        print("order")
-                    } label: {
-                        PrettyButton(title: "\(orderVM.totalPrice,specifier: "%.2f") ORDER NOW")
-                    }.buttonStyle(.bordered)
-                        .tint(.orange)
-                    Spacer()
+                if  orderVM.orderedMealList.isEmpty{
+                    emptyState
+                } else {
+                    List{
+                        ForEach(orderVM.orderedMealList) { order in
+                            MealListCell(meal: order)
+                        }.onDelete(perform: orderVM.deleteItems)
+                    } .listStyle(.plain)
+                    VStack{
+                        Button {
+                            print("order")
+                        } label: {
+                            PrettyButton(title: "$\(orderVM.totalPrice,specifier: "%.2f") ORDER NOW")
+                        }.buttonStyle(.bordered)
+                            .tint(.orange)
+                            .frame(alignment: .bottom)
+                        
+                    }
                 }
-                .listStyle(.plain)
-            .navigationBarTitle("Order")
-
                 
+            }.navigationBarTitle("Order")
         }
-        //.environmentObject(mealVm)
-        }
+    }
+}
+
+var emptyState : some View{
+    VStack{
+        Image("empty-order")
+            .resizable()
+            .scaledToFit()
+            .padding()
+        Text("You don't have any order")
+            .font(.title3)
+            .foregroundColor(.gray)
+            .fontWeight(.semibold)
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct MealDetailView: View {
     let mealDetail: Result
@@ -15,19 +16,19 @@ struct MealDetailView: View {
     
     var body: some View {
         VStack {
-                AsyncImage(url: URL(string: "\(mealDetail.imageURL)")){ image in
-                        image.resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                .frame(maxWidth: .infinity, maxHeight: 300)
+            CachedAsyncImage(url: URL(string: "\(mealDetail.imageURL)")){ image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(maxWidth: .infinity, maxHeight: 300)
             
-                
-                Spacer()
-                
+            
+            Spacer()
+            
             VStack {
                 Text(mealDetail.name)
-                        .font(.headline)
+                    .font(.headline)
                     .fontWeight(.bold)
                 
                 Text(mealDetail.requestDescription)
@@ -36,30 +37,30 @@ struct MealDetailView: View {
                     .multilineTextAlignment(.center)
             }
             Spacer()
-
-                // MARK: - cal, carbs, protein
-
+            
+            // MARK: - cal, carbs, protein
+            
             HStack(spacing:40){
-                    NutritionInfo(title: "Calories", value: mealDetail.calories)
-                    NutritionInfo(title: "Carbs", value: mealDetail.carbs)
-                    NutritionInfo(title: "Protein", value: mealDetail.protein)
-                }
-                Spacer()
-
-                // MARK: - Button
-
-                Button(action: {
-                    orderVM.orderedMealList.append(mealDetail)
-                   
-                    print(orderVM.orderedMealList.count)
-                }) {
-                    PrettyButton(title: "$\(mealDetail.price,specifier: "%.2f")  -  Add To Order")
-                }.buttonStyle(.bordered)
-                    .tint(.orange)
-                    .padding()
-                Spacer()
-
+                NutritionInfo(title: "Calories", value: mealDetail.calories)
+                NutritionInfo(title: "Carbs", value: mealDetail.carbs)
+                NutritionInfo(title: "Protein", value: mealDetail.protein)
             }
+            Spacer()
+            
+            // MARK: - Button
+            
+            Button(action: {
+                orderVM.orderedMealList.append(mealDetail)
+                
+                print(orderVM.orderedMealList.count)
+            }) {
+                PrettyButton(title: "$\(mealDetail.price,specifier: "%.2f")  -  Add To Order")
+            }.buttonStyle(.bordered)
+                .tint(.orange)
+                .padding()
+            Spacer()
+            
+        }
         
     }
 }

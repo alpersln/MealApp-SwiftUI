@@ -21,6 +21,7 @@
 		826F9DE028DB620F0076B014 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826F9DDF28DB620F0076B014 /* OrderViewModel.swift */; };
 		826F9DE328DB660D0076B014 /* MealListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826F9DE228DB660D0076B014 /* MealListCell.swift */; };
 		826F9DE628DB689E0076B014 /* PrettyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826F9DE528DB689E0076B014 /* PrettyButton.swift */; };
+		827203A328DF112D0008BA51 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 827203A228DF112D0008BA51 /* CachedAsyncImage */; };
 		82BFA33328D9B0B5004C2771 /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BFA33228D9B0B5004C2771 /* MealDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				827203A328DF112D0008BA51 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +182,9 @@
 			dependencies = (
 			);
 			name = "MealApp-SwiftUI";
+			packageProductDependencies = (
+				827203A228DF112D0008BA51 /* CachedAsyncImage */,
+			);
 			productName = "MealApp-SwiftUI";
 			productReference = 824AE90528D7829F00B74E51 /* MealApp-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -208,6 +213,9 @@
 				Base,
 			);
 			mainGroup = 824AE8FC28D7829F00B74E51;
+			packageReferences = (
+				827203A128DF112D0008BA51 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+			);
 			productRefGroup = 824AE90628D7829F00B74E51 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -447,6 +455,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		827203A128DF112D0008BA51 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		827203A228DF112D0008BA51 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 827203A128DF112D0008BA51 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 824AE8FD28D7829F00B74E51 /* Project object */;
 }

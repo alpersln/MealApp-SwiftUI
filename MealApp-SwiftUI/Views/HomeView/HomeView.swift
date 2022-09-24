@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var mealvm = mealViewModel()
-    @State var imagg = Image("trek")
+    
     var body: some View {
         NavigationView {
             if mealvm.mealList?.request == nil {

@@ -10,9 +10,7 @@ import Foundation
 
 class OrderViewModel : ObservableObject {
     
-    @Published var orderedMealList:[Result] = [
-        Result(requestDescription: "asd", calories: 2, price: 23.22, protein: 2, name: "beef stok", imageURL: "e", carbs: 23, id: 3)
-    ]
+    @Published var orderedMealList:[Result] = []
     
     var totalPrice: Double {
         orderedMealList.reduce(0){
